@@ -1,14 +1,32 @@
-import React,{Component} from "react";
+import React from "react";
 
-class ListofCharacters extends Component {
+import styled from 'styled-components';
 
-    constructor(){
-        this.state = {characters : ['Jon','Ned']};
-    }
+import SideBar from './common/side-bar'
+import SalesChart from './common/sales-chart'
+import TabledData from './common/table-data'
 
-    render(){
-        this.state.map((x)=>{
-            return <p>{x}</p>
-        })
-    }
+
+const Main= styled.div`
+display: flex;
+background-color: #BDC3C7;
+`;
+
+const Illustration = styled.div`
+margin-left : 25%;
+width: 100%;
+`;
+
+
+function HomePage()  {
+
+    return<Main>
+        <SideBar/>
+        <Illustration>
+            <SalesChart/>
+            <TabledData/>
+        </Illustration>
+    </Main>
 }
+
+export default HomePage;
