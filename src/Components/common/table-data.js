@@ -8,9 +8,9 @@ const TableRowData = styled.td`
 text-align : center;
 `;
 
-const CutomTable = styled(Table)`
+const CustomTable = styled(Table)`
   background-color: white;
-  width: 100%;
+  width: 1250px;
   margin-top: 50px;
   padding-top: 15px;
 `;
@@ -19,8 +19,8 @@ function TabledData()  {
 
     const salesData = useSelector(state=>state.sales);
 
-    return <CutomTable bordered hover>
-        <thead>
+    return <CustomTable striped bordered hover>
+        <thead >
         <tr>
             <th>WEEK ENDING</th>
             <th>RETAIL SALES</th>
@@ -40,7 +40,7 @@ function TabledData()  {
             </tr>
         })};
         </tbody>
-    </CutomTable>
+    </CustomTable>
 }
 
 export default TabledData;

@@ -13,7 +13,9 @@ background-color: #BDC3C7;
 `;
 
 const Illustration = styled.div`
-margin-left : 25%;
+margin-left : 20px;
+margin-top : 50px;
+margin-bottom : 50px;
 width: 100%;
 `;
 

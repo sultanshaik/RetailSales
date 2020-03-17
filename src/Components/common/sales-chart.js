@@ -13,14 +13,19 @@ background-color: white;
 function SalesChart()  {
 
     const salesData = useSelector(state=>state.sales);
+    console.log(salesData);
+
+    const chartData = salesData.map(x=> {return {retailSales: x.retailSales,wholesaleSales: x.wholesaleSales, weeks : getMonths(x.weekEnding)}});
+    console.log(chartData);
 
     return <CustomLineChart
-        width={1200}
+        width={1250}
         height={500}
-        data={salesData}
+        data={chartData}
     >
         <CartesianGrid stroke="#f5f5f5" />
-        <XAxis dataKey="weekEnding" tickCount={53}/>
+        <XAxis dataKey="weeks" interval={"preserveStartEnd"} />
+        <YAxis dataKey="retailSales" interval={"preserveStartEnd"} />
         <Line type="monotone" dataKey="retailSales" stroke="#8884d8" />
         <Line type="monotone" dataKey="wholesaleSales" stroke="#45fc03" />
     </CustomLineChart>
@@ -35,11 +40,28 @@ function getMonthFromDate(date) {
 }
 
 function getMonths(data) {
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    return months[(data.split('-')[1]-1)];
 
+}
+
+function getRetailSales(data) {
     debugger;
-    if(data)
+    console.log(data);
+    /*return data.map((x)=>{
+        return Intl.DateTimeFormat('en-US', options).format(new Date(x).getMonth());
+    });*/
+
+    return [];
+
+}
+
+
+function getWholesaleSales(data) {
+    debugger;
+    console.log(data);
     return data.map((x)=>{
-        return Intl.DateTimeFormat('en-UK', options).format(new Date(x).getMonth());
+        return x.wholesaleSales;
     });
 
 }
