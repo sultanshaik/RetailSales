@@ -35,8 +35,6 @@ function getMonthFromDate(date) {
     let  options = { month: 'long'};
     console.log(date);
     return new Intl.DateTimeFormat('en-UK', options).format(new Date(date).getMonth());
-
-
 }
 
 function getMonths(data) {
